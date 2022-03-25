@@ -1,2 +1,2 @@
 # Flutter-Development
-A Flutter repository with lots of examples
+This is a repository where there are a lot of examples
