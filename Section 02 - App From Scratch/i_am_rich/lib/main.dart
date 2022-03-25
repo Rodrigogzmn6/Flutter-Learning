@@ -12,7 +12,7 @@ void main() {
         body: const Center(
           child: Image(
             image:
-                NetworkImage('https://pbs.twimg.com/media/DU4dljEW4AAfcKj.jpg'),
+                AssetImage('images/diamond.png'),
           ),
         ),
       ),
