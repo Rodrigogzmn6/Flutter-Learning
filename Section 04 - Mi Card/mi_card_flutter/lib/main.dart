@@ -7,48 +7,37 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.orange,
+        backgroundColor: Colors.teal,
         body: SafeArea(
-          child: Column(
+          child: Row(
             children: [
               Container(
-                color: Colors.blueAccent,
-                child: Text('This is the container N° 1'),
-                height: 100.0,
+                color: Colors.red,
+                height: double.infinity,
+                width: 100.0,
               ),
-              Container(
-                color: Colors.redAccent,
-                child: Text('This is the container N° 1'),
-                height: 100.0,
-              ),
-              Container(
-                color: Colors.greenAccent,
-                child: Text('This is the container N° 1'),
-                height: 100.0,
-              ),
-              Row(
+              Column(
                 children: [
                   Container(
-                    color: Colors.blueAccent,
-                    child: Text('This is the container N° 1'),
+                    width: 100.0,
                     height: 100.0,
+                    color: Colors.yellow,
                   ),
                   Container(
-                    color: Colors.redAccent,
-                    child: Text('This is the container N° 1'),
+                    width: 100.0,
                     height: 100.0,
-                  ),
-                  Container(
-                    color: Colors.greenAccent,
-                    child: Text('This is the container N° 1'),
-                    height: 100.0,
+                    color: Colors.lime,
                   ),
                 ],
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.center,
               ),
+              Container(
+                color: Colors.blue,
+                height: double.infinity,
+                width: 100.0,
+              )
             ],
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
           ),
         ),
       ),
