@@ -15,10 +15,16 @@ void main() {
   );
 }
 
-class DicePage extends StatelessWidget {
+class DicePage extends StatefulWidget {
+  @override
+  State<DicePage> createState() => _DicePageState();
+}
+
+class _DicePageState extends State<DicePage> {
+  int leftDiceNumber = 1;
+  //It needs to be declared here so it won't be created again every time I rebuild the widget
   @override
   Widget build(BuildContext context) {
-    var leftDiceNumber = 5;
     return Center(
       child: Column(
         children: [
@@ -27,7 +33,11 @@ class DicePage extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               child: TextButton(
                 child: Image.asset('images/dice$leftDiceNumber.png'),
-                onPressed: () => print('Upper button'),
+                onPressed: () {
+                  setState(() {
+                    leftDiceNumber = 3;
+                  });
+                },
               ),
             ),
           ),
