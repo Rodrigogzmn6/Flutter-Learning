@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 import 'quiz_brain.dart';
@@ -37,7 +35,6 @@ class QuizPage extends StatefulWidget {
 class _QuizPageState extends State<QuizPage> {
   List<Icon> scoreKeeper = [];
 
-  int questionNumber = Random().nextInt(16);
   Icon correct = const Icon(
     Icons.check,
     color: Colors.green,
@@ -58,7 +55,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: const EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                quizBrain.questions[questionNumber].questionText,
+                quizBrain.getQuestionText(),
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   fontSize: 25.0,
@@ -83,14 +80,13 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
-                if (quizBrain.questions[questionNumber].questionAnswer ==
-                    true) {
+                if (quizBrain.getQuestionAnswer() == true) {
                   scoreKeeper.add(correct);
                 } else {
                   scoreKeeper.add(wrong);
                 }
                 setState(() {
-                  questionNumber = Random().nextInt(16);
+                  quizBrain.nextQuestion();
                 });
               },
             ),
@@ -111,14 +107,13 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
-                if (quizBrain.questions[questionNumber].questionAnswer ==
-                    false) {
+                if (quizBrain.getQuestionAnswer() == false) {
                   scoreKeeper.add(correct);
                 } else {
                   scoreKeeper.add(wrong);
                 }
                 setState(() {
-                  questionNumber = Random().nextInt(16);
+                  quizBrain.nextQuestion();
                 });
               },
             ),
