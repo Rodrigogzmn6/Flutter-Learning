@@ -1,19 +1,17 @@
-import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:flutter/material.dart';
 
 void main() {
   runApp(XylophoneApp());
 }
 
 class XylophoneApp extends StatefulWidget {
-
   @override
   State<XylophoneApp> createState() => _XylophoneAppState();
 }
 
 class _XylophoneAppState extends State<XylophoneApp> {
-
-  Expanded noteKey ({int noteNumber, Color keyColor}){
+  Expanded noteKey({int noteNumber = 0, Color keyColor = Colors.white}) {
     return Expanded(
       child: TextButton(
         onPressed: () {

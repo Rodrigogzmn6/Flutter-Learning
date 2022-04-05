@@ -1,6 +1,10 @@
-import 'package:flutter/material.dart';
-import 'question.dart';
 import 'dart:math';
+
+import 'package:flutter/material.dart';
+
+import 'quiz_brain.dart';
+
+QuizBrain quizBrain = QuizBrain();
 
 void main() => runApp(const Quizzler());
 
@@ -32,14 +36,8 @@ class QuizPage extends StatefulWidget {
 
 class _QuizPageState extends State<QuizPage> {
   List<Icon> scoreKeeper = [];
-  List<Question> questions = [
-    Question(q: 'You can lead a cow down stairs but not up stairs.', a: false),
-    Question(
-        q: 'Approximately one quarter of human bones are in the feet.',
-        a: true),
-    Question(q: 'A slug\'s blood is green.', a: true),
-  ];
-  int questionNumber = 0;
+
+  int questionNumber = Random().nextInt(16);
   Icon correct = const Icon(
     Icons.check,
     color: Colors.green,
@@ -60,7 +58,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: const EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                questions[questionNumber].questionText,
+                quizBrain.questions[questionNumber].questionText,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   fontSize: 25.0,
@@ -85,13 +83,14 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
-                if (questions[questionNumber].questionAnswer == true) {
+                if (quizBrain.questions[questionNumber].questionAnswer ==
+                    true) {
                   scoreKeeper.add(correct);
                 } else {
                   scoreKeeper.add(wrong);
                 }
                 setState(() {
-                  questionNumber = Random().nextInt(3);
+                  questionNumber = Random().nextInt(16);
                 });
               },
             ),
@@ -112,13 +111,14 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
-                if (questions[questionNumber].questionAnswer == false) {
+                if (quizBrain.questions[questionNumber].questionAnswer ==
+                    false) {
                   scoreKeeper.add(correct);
                 } else {
                   scoreKeeper.add(wrong);
                 }
                 setState(() {
-                  questionNumber = Random().nextInt(3);
+                  questionNumber = Random().nextInt(16);
                 });
               },
             ),
