@@ -1,20 +1,27 @@
 import 'package:flutter/material.dart';
 
 class IconContent extends StatelessWidget {
-  final Color color;
-  final Widget cardChild;
-
-  IconContent({@required this.color, this.cardChild}) {}
+  final IconData icon;
+  final String text;
+  IconContent({@required this.icon, @required this.text});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: cardChild,
-      margin: EdgeInsets.all(15.0),
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.circular(10.0),
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Icon(
+          icon,
+          size: 80.0,
+        ),
+        SizedBox(
+          height: 10.0,
+        ),
+        Text(
+          text,
+          style: TextStyle(fontSize: 18.0),
+        )
+      ],
     );
   }
 }
